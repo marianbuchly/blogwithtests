@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root "posts#index"
+
+  resources :categories do
+      resources :posts
+  end
+
   get 'categories/index'
 
   get 'categories/create'
@@ -29,7 +35,7 @@ Rails.application.routes.draw do
 
   get 'posts/destroy'
 
-  root "posts#index"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    name "MyString"
+    name { Faker::Name.name }
     age 1
     post nil
   end
