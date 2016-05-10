@@ -9,3 +9,12 @@ Post.create ([
   ])
 
   puts " seeded #{Post.count} posts!"
+
+Category.create([
+    { name: "Developing" },
+    { name: "Start" },
+    { name: "Rails" },
+    { name: "JS" }
+   ])
+
+puts "seeded #{Category.count} categories!"

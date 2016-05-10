@@ -4,9 +4,18 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = @user.posts
   end
 
   def create
+    @post = Post.new(post_params)
+    @post.user = @post
+
+    if @post.save
+      redirect_to user_post_path(@user, @post), notice: "New Post Created"
+    else
+      render :new
+    end
   end
 
   def edit
