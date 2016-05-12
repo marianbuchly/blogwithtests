@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
+
   root "posts#index"
 
-  resources :categories do
-      resources :posts
+  resources :categories
+
+  resources :posts do
+    resources :likes
   end
+
 
   get 'categories/index'
 

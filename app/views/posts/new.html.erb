@@ -1,6 +1,8 @@
 <h1> Add a new Post!</h1>
 
-<% if user_signed_in? %>
+<% if admin_signed_in? %>
 
 <%= render "form" %>
+
+
 <% end %>
