@@ -1,14 +1,29 @@
+<div class="col-xs-8">
+   <p>
+     <h3><%= post.title %></h3>
+      <h4><%= post.body %></h4>
+      <h4><%= post.image %></h4>
 
+      <% liked = Like.find_by( post: post, user: current_user ) != nil %>
+      <% btn_color = liked ? "warning" : "default" %>
+
+      <%= link_to "ツ", post_likes_path( post ), method: :post, class: "btn btn-#{btn_color} btn-xs", disabled: !user_signed_in? %>
+      <%= post.likes.count %>
+
+   </p>
+ </div>
+
+<center>
 <div class="post">
    <div class="row">
         <div class="col s8 m5">
           <div class="card">
             <div class="card-image">
               <img src="http://mwwebdesign.nl/wp-content/uploads/2011/05/over-mwwebdesign.jpg">
-              <span class="card-title">Basics</span>
+              <span class="card-title"><%= post.title %></span>
             </div>
             <div class="card-content">
-              <p>Learning Ruby on Rails, Javascript, and working with AJAX and JQuery. All of the basics were covered. Check out soms projects here.</p>
+              <p><%= post.body %></p>
             </div>
             <div class="card-action">
               <a href="#">This is a link</a>
@@ -22,10 +37,10 @@
              <div class="card">
                <div class="card-image">
                  <img src="http://www.pimp-mysite.nl/wp-content/uploads/2015/12/1.jpg">
-                 <span class="card-title">Advanced</span>
+                 <span class="card-title"><%= post.title %></span>
                </div>
                <div class="card-content">
-                 <p>Taking it to the next level with a more indepth look into Rails and React.js. Check out severval projects here. </p>
+                 <p><%= post.body %></p>
                </div>
                <div class="card-action">
                  <a href="#">This is a link</a>
@@ -37,16 +52,6 @@
     </div>
 
 
-<div class="col-xs-8">
-   <p>
-     <h3><%= post.title %></h3>
-      <h4><%= post.body %></h4>
 
-      <% liked = Like.find_by( post: post, user: current_user ) != nil %>
-      <% btn_color = liked ? "warning" : "default" %>
 
-      <%= link_to "ツ", post_likes_path( post ), method: :post, class: "btn btn-#{btn_color} btn-xs", disabled: !user_signed_in? %>
-      <%= post.likes.count %>
-
-   </p>
-</div>
+</center>
