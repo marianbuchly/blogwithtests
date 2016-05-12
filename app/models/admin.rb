@@ -3,5 +3,5 @@ class Admin < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :trackable, :timeoutable
 
-has_many :posts
+  has_many :posts
 end
