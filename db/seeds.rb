@@ -22,7 +22,7 @@ puts "seeded #{Category.count} categories!"
 # users = {
 #
 #   admin: {
-#     email: 'marian@marian.nl',
+#     email: 'mb@marian.nl',
 #     password: 'adminpass' ,
 #     password_confirmation: 'adminpass',
 #     is_admin: true
