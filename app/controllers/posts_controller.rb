@@ -26,3 +26,9 @@ class PostsController < ApplicationController
   def destroy
   end
 end
+
+private
+
+    def post_params
+      params.require(:post).permit(:body)
+    end

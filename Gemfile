@@ -43,6 +43,8 @@ group :development, :test do
   gem 'carrierwave'
   gem 'devise'
   gem 'bootstrap-sass', '~> 3.3.6'
+  gem 'materialize-sass'
+
 end
 
 group :development do
