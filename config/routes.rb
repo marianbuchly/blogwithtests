@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes
   end
-
+  #
+  # get 'posts/:id => posts#show'
 
   get 'categories/index'
 
