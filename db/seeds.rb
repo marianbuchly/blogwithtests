@@ -1,7 +1,7 @@
 print "Seeding Posts"
 
 Post.create ([
-  { title: "My first Blog Post" },
+  { title: "My first Blog Post", body: "Very interesting blog" },
   { title: "My second Blog Post" },
   { title: "My third Blog Post" },
   { title: "My fourth Blog Post" },
@@ -18,3 +18,17 @@ Category.create([
    ])
 
 puts "seeded #{Category.count} categories!"
+
+# users = {
+#
+#   admin: {
+#     email: 'marian@marian.nl',
+#     password: 'adminpass' ,
+#     password_confirmation: 'adminpass',
+#     is_admin: true
+#   }
+# }
+
+Admin.create  ([
+  {email: 'marian@marian.nl', password: 'adminpass'}
+])
