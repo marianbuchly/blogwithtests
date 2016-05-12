@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
   get 'posts/destroy'
 
+  get 'posts/new'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
