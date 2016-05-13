@@ -9,42 +9,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes
   end
-  #
-  # get 'posts/:id => posts#show'
-
-  get 'categories/index'
-
-  get 'categories/create'
-
-  get 'categories/destroy'
-
-  get 'categories/show'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/create'
-
-  get 'users/new'
-
-  get 'users/destroy'
-
-  get 'users/edit'
-
-  get 'posts/index'
-
-  get 'posts/show'
-
-  get 'posts/create'
-
-  get 'posts/edit'
-
-  get 'posts/destroy'
-
-  get 'posts/new'
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
