@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512183853) do
+ActiveRecord::Schema.define(version: 20160513080257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,8 +72,10 @@ ActiveRecord::Schema.define(version: 20160512183853) do
     t.integer  "user_id"
     t.string   "image"
     t.integer  "category_id"
+    t.integer  "admin_id"
   end
 
+  add_index "posts", ["admin_id"], name: "index_posts_on_admin_id", using: :btree
   add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
@@ -104,6 +106,7 @@ ActiveRecord::Schema.define(version: 20160512183853) do
   add_foreign_key "categories_posts", "posts"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "posts", "admins"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
   add_foreign_key "users", "posts"
