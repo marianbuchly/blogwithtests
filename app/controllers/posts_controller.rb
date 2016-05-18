@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  
  def index
    @posts = Post.all
 
@@ -27,7 +28,7 @@ class PostsController < ApplicationController
    if @post.save
        redirect_to posts_path, :notice => "Your post was saved"
    else
-       render ="new"
+       render :new
    end
  end
 

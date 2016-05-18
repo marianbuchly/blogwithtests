@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   root "posts#index"
 
-  resources :categories
+  resources :categories 
 
-  resources :posts do
+  resources :posts  do
     resources :likes
   end
 

@@ -5,31 +5,31 @@ RSpec.describe CategoriesController, type: :controller do
   describe "GET #index" do
     let(:categories) { create_list(:category, 3) }
 
-    it "returns http success" do
+    it "assigns all posts to @categories" do
       get :index
       expect(assigns(:categories)).to eq categories
     end
   end
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "GET #show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
+    let(:category) { FactoryGirl.create(:category) }
+
+    it "assigns the requested category as @category" do
+      get :show, {:id => category.to_param}
+        expect(assigns(:category)).to eq category
     end
   end
+
+
+
+  describe "Get #destroy" do
+    let(:category) { FactoryGirl.create(:category) }
+
+    it "destroys @category" do
+      get :destroy, { id: category.to_param }
+      expect(assigns(:title)).to eq(@category)
+    end
+  end
+
 
 end

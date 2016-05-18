@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
     @category.post = @category
 
     if @category.save
-      redirect_to post_categorie_path(@post, @category), notice: "New Post Created"
+      redirect_to post_categories_path(@post, @category), notice: "New Post Created"
     else
       render :new
     end
@@ -22,5 +22,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category = Category.find( params[:id] )
   end
 end

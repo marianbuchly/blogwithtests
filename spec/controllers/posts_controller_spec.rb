@@ -4,6 +4,8 @@ RSpec.describe PostsController, type: :controller do
 
   describe "GET #index" do
     let(:posts) { create_list(:post, 3) }
+    let(:category) { create(:category) }
+
 
     it "assigns all posts to @posts" do
       get :index
@@ -11,34 +13,56 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  let(:admin) { FactoryGirl.create(:admin) }
 
+  let(:valid_attributes) do
+   { title: "Title", body: "So many tests!!", admin: admin }
+  end
 
-  # describe "GET #show" do
-  #   it "returns http success" do
-  #     get :show
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-  #end
-  # describe "GET #create" do
-  #   it "returns http success" do
-  #     get :create
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
+ let(:invalid_attributes) do
+   { title: "" }
+ end
+
+  describe "GET #show" do
+    let(:post) { FactoryGirl.create(:post) }
+
+    it "assigns the requested post as @post" do
+      get :show, {:id => post.to_param}
+      expect(assigns(:post)).to eq(post)
+    end
+  end
+
+  # describe "POST #create" do
+  #   let(:post) { FactoryGirl.create(:post) }
   #
-  # describe "GET #edit" do
-  #   it "returns http success" do
-  #     get :edit
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
-  #
-  # describe "GET #destroy" do
-  #   it "returns http success" do
-  #     get :destroy
-  #     expect(response).to have_http_status(:success)
+  #   it "create @post" do
+  #     expect {
+  #       post :create, { post: valid_attributes}
+  #        }.to change(Post, :count).by(1)
   #   end
   # end
 
+  # it "creates a new Post" do
+  #         expect {
+  #           post :create, {post: valid_attributes}
+  #         }.to change(Post, :count).by(1)
+  #       end
+
+  describe "Get #edit" do
+    let(:post) { FactoryGirl.create(:post) }
+
+    it "assigns to edit from @post" do
+      get :edit, { id: post.to_param }
+      expect(assigns(:title)).to eq(@post)
+    end
+  end
+
+  describe "Get #destroy" do
+    let(:post) { FactoryGirl.create(:post) }
+
+    it "destroys @post" do
+      get :destroy, { id: post.to_param }
+      expect(assigns(:title)).to eq(@post)
+    end
+  end
 end
